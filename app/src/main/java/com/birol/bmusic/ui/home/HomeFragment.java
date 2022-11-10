@@ -50,6 +50,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         HashSet<String> hset = new HashSet<String>(artistList);
         artistList= new ArrayList<String>(hset);
+        artistList.sort(String::compareToIgnoreCase);
         adapter = new ArtistListAdapter(artistList,getContext());
 
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

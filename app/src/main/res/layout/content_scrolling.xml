@@ -8,10 +8,10 @@
     tools:context=".ArtistViewScrollingActivity"
     tools:showIn="@layout/activity_artist_view_scrolling">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="5dp"
+        android:id="@+id/artistrecycleview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </androidx.core.widget.NestedScrollView>

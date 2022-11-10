@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.birol.bmusic.ArtistViewScrollingActivity;
+import com.birol.bmusic.MainActivity;
 import com.birol.bmusic.MusicPlayerActivity;
 import com.birol.bmusic.R;
 import com.birol.bmusic.model.AudioModel;
@@ -45,8 +47,9 @@ public class ArtistListAdapter extends RecyclerView.Adapter<ArtistListAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                Intent artistview = new Intent(v.getContext(), ArtistViewScrollingActivity.class);
+                artistview.putExtra("artist_name",artist);
+                v.getContext().startActivity(artistview);
             }
         });
 

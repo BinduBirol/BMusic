@@ -21,6 +21,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.birol.bmusic.databinding.ActivityMainBinding;
 import com.birol.bmusic.model.AudioModel;
+import com.birol.bmusic.service.AudioService;
 import com.birol.bmusic.util.MyMediaPlayer;
 import com.google.android.material.navigation.NavigationView;
 
@@ -31,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    ArrayList<AudioModel> songsList = new ArrayList<AudioModel>();
-    ArrayList<String> artistList = new ArrayList<String>();
+    private ArrayList<AudioModel> songsList = new ArrayList<AudioModel>();
+    private ArrayList<String> artistList = new ArrayList<String>();
+    AudioService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,14 +58,13 @@ public class MainActivity extends AppCompatActivity {
 
         String selection = MediaStore.Audio.Media.IS_MUSIC +" != 0";
 
-        Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,projection,selection,null,null);
+        Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,projection,selection,null,"TITLE ASC");
         while(cursor.moveToNext()){
             AudioModel songData = new AudioModel(cursor.getString(1),cursor.getString(0),cursor.getString(2),cursor.getString(3),cursor.getString(4));
             if(new File(songData.getPath()).exists()){
-                songsList.add(songData);
-                artistList.add(songData.getArtist());
+                this.songsList.add(songData);
+                this.artistList.add(songData.getArtist());
             }
-
         }
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());

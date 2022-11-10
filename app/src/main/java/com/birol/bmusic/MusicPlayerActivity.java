@@ -3,6 +3,8 @@ package com.birol.bmusic;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -22,6 +24,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class MusicPlayerActivity extends AppCompatActivity {
 
+
+
     TextView titleTv,currentTimeTv,totalTimeTv;
     SeekBar seekBar;
     ImageView pausePlay,nextBtn,previousBtn,musicIcon;
@@ -33,6 +37,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_music_player);
 
         titleTv = findViewById(R.id.song_title);

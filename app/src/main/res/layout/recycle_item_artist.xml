@@ -9,14 +9,17 @@
     <ImageView
         android:layout_marginRight="3dp"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_baseline_speaker_group_24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
+        android:src="@mipmap/artist_foreground"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
 
     <TextView
         android:id="@+id/artistTextview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:textSize="20sp"
+        android:textColor="@color/black"
         android:text="TextView" />
 </LinearLayout>
